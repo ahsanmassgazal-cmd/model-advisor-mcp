@@ -1,11 +1,12 @@
 {
   "name": "model-advisor-mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MCP server that recommends which Claude model (Haiku, Sonnet, Opus, Fable) to use for a task — save usage and tokens. By SigmaMax AI Solutions.",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "node test/test.js"
+    "start:http": "node src/http.js",
+    "test": "node test/test.js && node test/http-test.js"
   },
   "keywords": [
     "mcp",
