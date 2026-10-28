@@ -21,10 +21,21 @@ Free and open source. Built by [SigmaMax AI Solutions](https://sigmamaxaisolutio
 
 | You use... | Use this | Setup time |
 |---|---|---|
-| **Claude.ai** (web or phone) | **Path 1: paste instructions** | 2 minutes, nothing to install |
-| **Claude Desktop, Claude Code, Antigravity, Cursor** | **Path 2: MCP server** | 10 minutes |
+| **Claude.ai** (web or phone) | **Path 1: add as a connector** (easiest) | 1 minute, no install |
+| **Claude.ai** (free plan) | **Path 2: paste instructions** | 2 minutes, nothing to install |
+| **Claude Desktop, Claude Code, Antigravity, Cursor** | **Path 3: local MCP server** | 10 minutes |
 
-### Path 1: Claude.ai (web / phone). No install.
+### Path 1: Add as a connector (easiest, works on phone too)
+
+1. Open **claude.ai** in a browser and go to **Settings → Connectors → Add custom connector**.
+2. Name: `Model Advisor`. URL: `https://model-advisor-mcp.vercel.app/mcp`
+3. Click **Add**, then switch it on from the tools menu in a chat.
+4. Try: "Use recommend_model: translate this WhatsApp line into Arabic. I'm on Opus."
+
+Add it once on the website and it appears in the Claude phone app on the same account.
+Note: custom connectors may need a paid Claude plan. On a free plan, use Path 2.
+
+### Path 2: Paste instructions (Claude.ai, no install)
 
 1. In Claude, create a **Project** (or open Settings and find your personal preferences).
 2. Paste this into the project instructions:
@@ -40,7 +51,7 @@ At the end of a big task, add "🧭 Next time: <model> would be enough" only if 
 
 Prefer a Claude *skill*? The same thing is packaged in [`skills/model-advisor/SKILL.md`](skills/model-advisor/SKILL.md).
 
-### Path 2: Claude Desktop / Claude Code / Antigravity (MCP server)
+### Path 3: Local MCP server (Claude Desktop, Claude Code, Antigravity)
 
 Needs [Node.js 18+](https://nodejs.org) and [Git](https://git-scm.com).
 
@@ -89,7 +100,7 @@ Just ask in plain words. Real outputs:
 | *End of a task: "Use review_model_choice: translated one line, used Opus"* | 🧭 Next time: **Haiku 5.5** would be enough for this kind of task (saves usage). |
 | A chat that has run 60+ messages | Start a new chat for a new topic to save tokens. |
 
-## 🔧 Tools (Path 2)
+## 🔧 Tools (Path 1 and 3)
 
 | Tool | When | What you get |
 |---|---|---|
@@ -99,9 +110,10 @@ Just ask in plain words. Real outputs:
 
 ## ❓ Troubleshooting
 
+- **Connector fails to add:** open the URL in a browser. If you do not see 'Model Advisor MCP is running', the server is down.
 - **Tool doesn't appear in Claude Desktop:** the config path or JSON is wrong. Check for single backslashes, missing commas, then fully quit (system tray) and reopen.
 - **`node` not recognized:** install Node.js LTS, then reopen your terminal.
-- **Web or phone Claude:** the MCP runs on your computer, so use Path 1 there.
+- **Web or phone Claude:** use Path 1 (connector) or Path 2 (instructions).
 
 ## How it decides
 
