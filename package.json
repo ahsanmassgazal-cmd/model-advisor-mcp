@@ -26,6 +26,6 @@
     "model-advisor-mcp": "src/index.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": "22.x"
   }
 }
